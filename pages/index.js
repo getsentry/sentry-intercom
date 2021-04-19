@@ -5,7 +5,6 @@ export default function Home() {
     <div className="container">
       <Head>
         <title>sentry-intercom</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main></main>
