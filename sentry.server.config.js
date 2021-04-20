@@ -1,7 +1,14 @@
-import * as Sentry from "@sentry/nextjs";
+// This file configures the initialization of Sentry on the server.
+// The config you add here will be used whenever the server handles a request.
+// https://docs.sentry.io/platforms/javascript/guides/nextjs/
+
+import * as Sentry from '@sentry/nextjs';
 
 const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
 
 Sentry.init({
-  dsn: SENTRY_DSN || "___PUBLIC_DSN___",
+  dsn: SENTRY_DSN || 'https://9276a84ceaa14e6b8a9e3eac7b4f7c0f@o1.ingest.sentry.io/5726700',
+  // Note: if you want to override the automatic release value, do not set a
+  // `release` value here - use the environment variable `SENTRY_RELEASE`, so
+  // that it will also get attached to your source maps
 });
