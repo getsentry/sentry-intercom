@@ -33,7 +33,7 @@ function syncSentryPluginVersion() {
     packageJson.dependencies &&
     packageJson.dependencies.next
   ) {
-    const packagePluginPath = `./node_modules/@sentry/nextjs/package.json`;
+    const packagePluginPath = `./node_modules/@sentry/next-plugin-sentry/package.json`;
     const packagePlugin = require(packagePluginPath);
     packagePlugin.version = packageJson.dependencies.next;
     fs.writeFileSync(packagePluginPath, JSON.stringify(packagePlugin));
@@ -46,7 +46,7 @@ syncSentryPluginVersion();
 
 module.exports = {
   experimental: { plugins: true },
-  plugins: ["@sentry/nextjs"],
+  plugins: ["@sentry/next-plugin-sentry"],
   productionBrowserSourceMaps: true,
   webpack: (config, { dev }) => {
     if (!dev) {
