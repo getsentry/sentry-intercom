@@ -1,4 +1,6 @@
-export default function handler(req, res) {
+import { withSentry } from "@sentry/nextjs";
+
+function handler(req, res) {
   res.status(200).json({
     canvas: {
       content: {
@@ -15,3 +17,5 @@ export default function handler(req, res) {
     },
   });
 }
+
+export default withSentry(handler);
